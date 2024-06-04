@@ -2,12 +2,8 @@ import numpy as np
 import cv2
 import os
 
-
-def play_video(video_relative_path):
-    # 构建相对路径，使用os.path.join拼接路径，确保跨平台兼容性
-    video_path = os.path.join(os.path.dirname(__file__), 'video', video_relative_path)
+def play_video(video_path):
     # 检查视频文件是否存在
-    global cap
     if not os.path.isfile(video_path):
         print(f"Error: Video file '{video_path}' does not exist.")
         return
@@ -34,16 +30,15 @@ def play_video(video_relative_path):
             # 如果读取帧失败，退出循环
             if not ret:
                 break
-
-            cv2.imshow('image', frame)  # 打开视频播放窗口
-
-            k = cv2.waitKey(20)  # 视频播放的帧率
-            # q键退出
-            if (k & 0xff == ord('q')):
-                break
+            cv2.imshow('image', frame)
 
             # 检测窗口是否仍然存在，若窗口已关闭则退出循环
             if cv2.getWindowProperty('image', cv2.WND_PROP_VISIBLE) < 1:
+                break
+
+            k = cv2.waitKey(20)
+            # q键退出
+            if (k & 0xff == ord('q')):
                 break
 
     except Exception as e:
@@ -54,6 +49,5 @@ def play_video(video_relative_path):
             cap.release()
         cv2.destroyAllWindows()
 
-
 # 调用示例，传入视频文件的路径
-play_video("video.mp4")
+play_video('D:/English Word/Pycharm/type/pythonProject2/video/video.mp4')
