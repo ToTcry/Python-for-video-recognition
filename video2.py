@@ -2,17 +2,20 @@ import numpy as np
 import cv2
 
 # 定义颜色阈值
-lower_red = np.array([200, 150, 250])  # 红色阈值下界
-higher_red = np.array([255, 200, 200])  # 红色阈值上界
+# 红色区间优化，尝试减少误识别其他颜色的情况
+lower_red = np.array([0, 100, 90])  # 减少饱和度和亮度的下限，以排除浅红或粉色调
+higher_red = np.array([10, 255, 255])
 
-lower_green = np.array([150, 200, 150])  # 绿色阈值下界
-higher_green = np.array([200, 255, 200])  # 绿色阈值上界
+# 绿色区间优化，确保在不同光照下都能准确识别
+lower_green = np.array([35, 70, 70])  # 调整以适应更多绿色变体，特别是暗绿
+higher_green = np.array([80, 255, 255])
 
-lower_blue = np.array([150, 150, 200])  # 绿色阈值下界
-higher_blue = np.array([200, 200, 255])  # 绿色阈值上界
+# 黑色区间显著扩大
+lower_black = np.array([0, 0, 0])  # 保持不变，因为已经是最低值
+higher_black = np.array([100, 100, 50])  # 大幅增加，以识别更广泛的深色区域
 
-lower_black = np.array([0, 0, 0])  # 黑色阈值下界
-higher_black = np.array([70, 70, 70])  # 黑色阈值上界
+# 注意：这些值仅为示例，实际应用中需要根据具体情况调整
+
 
 # 定义字体
 font = cv2.FONT_HERSHEY_SIMPLEX

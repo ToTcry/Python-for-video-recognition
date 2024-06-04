@@ -1,4 +1,3 @@
-import numpy as np
 import cv2
 import os
 
@@ -35,7 +34,7 @@ def play_video(video_relative_path):
             if not ret:
                 break
 
-            cv2.imshow('image', frame)  # 打开视频播放窗口
+            cv2.imshow('image', frame)  # 在窗口显示视频，一帧
 
             k = cv2.waitKey(20)  # 视频播放的帧率
             # q键退出
