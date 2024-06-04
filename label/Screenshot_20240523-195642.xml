@@ -1,0 +1,26 @@
+<annotation>
+	<folder>picture</folder>
+	<filename>Screenshot_20240523-195642.jpg</filename>
+	<path>D:\Engelish Word\Pycharm\type\pythonProject2\picture\Screenshot_20240523-195642.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1440</width>
+		<height>3040</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>订单编号</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>686</xmin>
+			<ymin>1105</ymin>
+			<xmax>1263</xmax>
+			<ymax>1205</ymax>
+		</bndbox>
+	</object>
+</annotation>
